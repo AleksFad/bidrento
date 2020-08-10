@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Search results{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="search-wrapper">
+        <h1>Search results</h1>
+        {% if posts is empty %}
+            <p>Oops, nothing was found</p>
+            <a href="{{ path('post_browse')}}">Back to homepage</a>
+        {% endif %}
+        {% for post in posts %}
+            {% if post %}
+                Post title: <p><a href="{{ path('post_read', { 'id' : post.id }) }}">{{ post.title }}</a></p>
+                Post content: <p>{{ post.content }}</p>
+            <hr>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

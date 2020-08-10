@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Search title and content here{% endblock %}
+
+{% block body %}
+<style>
+    .search-wrapper { margin: 2em auto;  font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="search-wrapper">
+    <form action="{{ path('search_result') }}" method="POST">
+        <input type="text" placeholder="Search" name="search">
+        <button type="submit">Search</button>
+    </form>
+</div>
+{% endblock %}

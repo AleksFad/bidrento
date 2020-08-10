@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <p>Published on: {{ post.getPublishedAt|date("j F") }}</p>
+
+    <p>
+        <a href="{{ path('post_browse') }}">Browse posts</a>
+    </p>
+
+    <p>
+        <a href="{{ path('post_comment_add', {'post' : post.id}) }}">Add comment</a>
+    </p>
+
+    <h3>Comments</h3>
+
+    {% for comment in post.comments %}
+        <div>
+            {{ comment.content }} - <a href="{{ path('post_comment_delete', { 'post' : post.id, 'id': comment.id }) }}">Delete Comment</a></li>
+            <p>Posted at: {{ comment.getPostedAt|date('Y-m-d') }}</p>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}
