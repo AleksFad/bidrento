@@ -25,3 +25,6 @@ To run this app:
  
  # Run project
   symfony server:start
+------------------------------------------------------
+In this project no time was devoted to write css and all templates have very basic structure.
+For security i used a symfony security-bundle (https://symfony.com/doc/current/security.html)
